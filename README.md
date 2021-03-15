@@ -1,5 +1,5 @@
 # ctimeit
-Basic benchmarking utility in c++ for measure run time of your function. For proper benchmarking refer to [Google/benchmark](https://github.com/google/benchmark).
+Basic benchmarking utility in c++ for measuring run time of your function. For proper benchmarking refer to [Google/benchmark](https://github.com/google/benchmark).
 
 ## Usage
 
