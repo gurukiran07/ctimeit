@@ -4,6 +4,12 @@ Basic benchmarking utility in c++ for measure run time of your function. For pro
 ## Usage
 
 ```cpp
+ctimeit::timeit(func_name, func_arg1, func_args2, ...);
+```
+
+## Example
+
+```cpp
 #include <iostream>
 #include <vector>
 #include "ctimeit.h"
