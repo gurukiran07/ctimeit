@@ -9,6 +9,8 @@ ctimeit::timeit(func_name, func_arg1, func_args2, ...);
 
 ## Example
 
+You can find the code for below example [here](https://github.com/gurukiran07/ctimeit/tree/main/example)
+
 ```cpp
 #include <iostream>
 #include <vector>
