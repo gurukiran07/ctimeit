@@ -13,6 +13,11 @@ std::string format_time(int64_t);
 
 template <size_t N = 1000, typename Callable, typename... Args>
 void timeit(Callable func, Args&&... Funcargs) {
+  /*
+   * Measure the average execution time of `func` which takes `Funcargs`
+   * after `N` executions.
+   */
+
   double total_time{0};
   int64_t min_exec_time{std::numeric_limits<int64_t>::max()}, max_exec_time{0};
 
@@ -35,6 +40,10 @@ void timeit(Callable func, Args&&... Funcargs) {
 }
 
 std::string format_time(int64_t run_time) {
+  /*
+   * For setting the scale of execution time.
+   */
+
   std::string formats[]{"ns", "µs", "ms", "s"};
   float scaling[]{1, 1e3, 1e6, 1e9};
   int pow = std::floor(std::log10(run_time));

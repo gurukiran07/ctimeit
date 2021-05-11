@@ -33,6 +33,11 @@ int64_t SomeFuncByRef(std::vector<int>& vec) {
   return sum;
 }
 
+void FuncNoArgs() {
+  int i = 100'000;
+  while (i--)
+    ;
+}
 int main() {
   std::srand(unsigned(std::time(nullptr)));
   std::vector<int> v(100000);
@@ -40,8 +45,13 @@ int main() {
 
   std::cout << "-------SomeFunc---------\n";
   timeit(SomeFunc, v);
+
   std::cout << "-------anotherFunc with N arg---------\n";
   timeit<100>(anotherFunc, 10, 20, 40.f);
+
   std::cout << "-------SomeFuncByRef with N arg---------\n";
   timeit<1000>(SomeFuncByRef, v);
+
+  std::cout << "---------FuncNoArgs-------------\n";
+  timeit(FuncNoArgs);
 }

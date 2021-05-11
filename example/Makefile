@@ -1,5 +1,7 @@
 # -*- MakeFile _*_
 
+run: test
+	./test
 
 test: test.o
 	g++ test.o -o test
@@ -7,8 +9,5 @@ test: test.o
 test.o: test.cpp ctimeit.h
 	g++ test.cpp -c
 
-run: test
-	./test
-	
 clean:
 	rm -f *.o test
