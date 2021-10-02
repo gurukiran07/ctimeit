@@ -23,7 +23,7 @@ void anotherFunc(int x, int y, float z){
 }
 
 int64_t SomeFunc(std::vector<int> vec){
-  // function bosy
+  // function body
 }
 
 int main(){
