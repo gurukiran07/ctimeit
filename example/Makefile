@@ -1,7 +1,7 @@
 # -*- MakeFile _*_
 
 CXX = g++
-CXXFLAGS = -std=c++11
+CXXFLAGS = -std=c++17
 
 run: test
 	@./test

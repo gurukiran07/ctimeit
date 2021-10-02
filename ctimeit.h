@@ -39,15 +39,15 @@ void timeit(Callable func, Args&&... Funcargs) {
             << "Min time taken     : " << format_time(min_exec_time) << "\n";
 }
 
-std::string format_time(int64_t run_time) {
+std::string format_time(double run_time) {
   /*
    * For setting the scale of execution time.
    */
 
-  std::string formats[]{"ns", "µs", "ms", "s"};
-  float scaling[]{1, 1e3, 1e6, 1e9};
+  double scaling[]{1, 1e3, 1e6, 1e9};
   int pow = std::floor(std::log10(run_time));
-  int idx = std::max(0, pow / 3);
+  std::array formats = {"ns", "µs", "ms", "s"};
+  auto idx = std::clamp(pow / 3, 0, static_cast<int>(formats.size() - 1));
   return std::to_string(run_time / scaling[idx]) + formats[idx];
 }
 
