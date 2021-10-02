@@ -58,4 +58,4 @@ Min time taken     : 833.549011µs
 
 ### Requirements
 
-- C++11 or above.
+- C++17 or above.
