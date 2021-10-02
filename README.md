@@ -19,16 +19,11 @@ You can find the code for below example [here](https://github.com/gurukiran07/ct
 using namespace ctimeit;
 
 void anotherFunc(int x, int y, float z){
-
-  while(x--){
-		
-  }
+    // function body
 }
 
 int64_t SomeFunc(std::vector<int> vec){
-  int64_t sum = 0;
-  for(auto i: vec)sum+=i;
-  return sum;
+  // function bosy
 }
 
 int main(){
