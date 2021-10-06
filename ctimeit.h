@@ -7,7 +7,7 @@
 #include <limits>
 
 namespace ctimeit {
-using GetTime = std::chrono::high_resolution_clock;
+using GetTime = std::chrono::steady_clock;
 using std::chrono::duration_cast;
 std::string format_time(int64_t);
 

@@ -7,12 +7,17 @@
 #include <limits>
 
 namespace ctimeit {
-using GetTime = std::chrono::high_resolution_clock;
+using GetTime = std::chrono::steady_clock;
 using std::chrono::duration_cast;
 std::string format_time(int64_t);
 
 template <size_t N = 1000, typename Callable, typename... Args>
 void timeit(Callable func, Args&&... Funcargs) {
+  /*
+   * Measure the average execution time of `func` which takes `Funcargs`
+   * after `N` executions.
+   */
+
   double total_time{0};
   int64_t min_exec_time{std::numeric_limits<int64_t>::max()}, max_exec_time{0};
 
@@ -34,11 +39,15 @@ void timeit(Callable func, Args&&... Funcargs) {
             << "Min time taken     : " << format_time(min_exec_time) << "\n";
 }
 
-std::string format_time(int64_t run_time) {
-  std::string formats[]{"ns", "µs", "ms", "s"};
-  float scaling[]{1, 1e3, 1e6, 1e9};
+std::string format_time(double run_time) {
+  /*
+   * For setting the scale of execution time.
+   */
+
+  double scaling[]{1, 1e3, 1e6, 1e9};
   int pow = std::floor(std::log10(run_time));
-  int idx = std::max(0, pow / 3);
+  std::array formats = {"ns", "µs", "ms", "s"};
+  auto idx = std::clamp(pow / 3, 0, static_cast<int>(formats.size() - 1));
   return std::to_string(run_time / scaling[idx]) + formats[idx];
 }
 
